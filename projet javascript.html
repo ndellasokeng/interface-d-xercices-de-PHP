@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculatrice</title>
+    <script>
+        function calculer() {
+            // Récupérer les valeurs des champs
+            var nombre1 = parseFloat(document.getElementById('nombre1').value);
+            var nombre2 = parseFloat(document.getElementById('nombre2').value);
+
+            // Vérifier si les valeurs sont des nombres
+            if (isNaN(nombre1) || isNaN(nombre2)) {
+                alert("Veuillez saisir des nombres valides.");
+                return;
+            }
+
+            // Vérifier si le deuxième nombre est différent de zéro pour éviter la division par zéro
+            if (nombre2 === 0) {
+                alert("Division par zéro impossible.");
+                return;
+            }
+
+            // Calculer et afficher les résultats
+            var somme = nombre1 + nombre2;
+            var multiplication = nombre1 * nombre2;
+            var division = nombre1 / nombre2;
+            var soustraction = nombre1 - nombre2;
+
+            document.getElementById('resultats').innerHTML = 
+                "Somme : " + somme + "<br>" +
+                "Multiplication : " + multiplication + "<br>" +
+                "Division : " + division + "<br>" +
+                "Soustraction : " + soustraction;
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Calculatrice</h1>
+
+    <form>
+        <label for="nombre1">Nombre 1:</label>
+        <input type="text" id="nombre1" placeholder="Entrez un nombre">
+
+        <label for="nombre2">Nombre 2:</label>
+        <input type="text" id="nombre2" placeholder="Entrez un nombre">
+
+        <button type="button" onclick="calculer()">Calculer</button>
+    </form>
+
+    <div id="resultats"></div>
+
+</body>
+</html>
